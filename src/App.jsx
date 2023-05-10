@@ -1,8 +1,16 @@
-function App() {
-  return <div className="text-blue-200 min-h-[100vh] bg-red-400">
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Home from "./routes/Home";
 
-    <h1>shivam is a coder</h1>
-  </div>;
+function App() {
+  return (
+    <>
+      {/* <Router>
+        <Routes>
+          <Route path="/" element = {<Home />}></Route>
+        </Routes>
+      </Router> */}
+    </>
+  );
 }
 
 export default App;
