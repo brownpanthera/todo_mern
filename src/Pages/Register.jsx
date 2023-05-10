@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { CredentialContext } from "../App";
+import { useContext } from "react";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
+
+  const [, setCredentials] = useContext(CredentialContext);
 
   const navigate = useNavigate();
 
@@ -32,6 +36,10 @@ const registerButton = (e) => {
     })
     .then(handleErrors)
     .then(() => {
+      setCredentials({
+        username,
+        password,
+      });
       navigate("/");
     })
     .catch((error) => {
