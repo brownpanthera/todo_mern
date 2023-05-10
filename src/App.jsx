@@ -1,16 +1,18 @@
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import Home from "./routes/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Error from "./Error";
+import Register from "./Pages/Register";
 
-function App() {
+const App = () => {
   return (
-    <>
-      {/* <Router>
-        <Routes>
-          <Route path="/" element = {<Home />}></Route>
-        </Routes>
-      </Router> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
