@@ -13,6 +13,8 @@ export default function Home() {
      <ul>
         <li className="m-5 text-blue-800 underline">
        { !credentials && <Link to="/register">Register here.</Link>}
+       <br />
+       { !credentials && <Link to="/login">Login here.</Link>}
         </li>
       </ul>
      </div>

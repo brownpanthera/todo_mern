@@ -2,9 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { CredentialContext } from "../App";
 import { useContext } from "react";
-import { handleErrors } from "./Login";
 
-export default function Register() {
+export const handleErrors = async (response) => {
+  if(!response.ok){
+    const {message} = await response.json();
+    console.log("message : ", message);
+    throw Error(message)
+  }
+}
+
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,18 +21,12 @@ export default function Register() {
 
   const navigate = useNavigate();
 
-const handleErrors = async (response) => {
-  if(!response.ok){
-    const {message} = await response.json();
-    console.log("message : ", message);
-    throw Error(message)
-  }
-}
 
 
-const registerButton = (e) => {
+
+const login = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4000/register`, {
+    fetch(`http://localhost:4000/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -53,10 +54,10 @@ const registerButton = (e) => {
   
   return (
     <div className="appearance-none">
-      <h1 className="text-center">Register your account</h1>
+      <h1 className="text-center">Login into your account</h1>
       <div className="text-red-600 m-5"> { error } </div>
       <form
-        onSubmit={registerButton}
+        onSubmit={login}
         className="flex w-64 flex-col gap-4 rounded-md bg-gray-100 p-4 shadow-md"
       >
         <input
@@ -75,7 +76,7 @@ const registerButton = (e) => {
           type="submit"
           className="rounded-md bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
-          Register
+          Login
         </button>
       </form>
     </div>
