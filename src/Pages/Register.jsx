@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { CredentialContext } from "../App";
 import { useContext } from "react";
-import { handleErrors } from "./Login";
+// import { handleErrors } from "./Login";
 
 export default function Register() {
   const [username, setUsername] = useState("");

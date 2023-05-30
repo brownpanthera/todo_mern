@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { CredentialContext } from "../App";
 import { useContext } from "react";
+import Todos from "../components/Todos";
 
 export default function Home() {
   useContext(CredentialContext);
@@ -17,6 +18,7 @@ export default function Home() {
        { !credentials && <Link to="/login">Login here.</Link>}
         </li>
       </ul>
+      {credentials && <Todos />}
      </div>
     </div>
   )

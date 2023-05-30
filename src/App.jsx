@@ -8,7 +8,10 @@ import Register from "./Pages/Register";
 export const CredentialContext = createContext();
 
 function App(){
-  const credentialsState = useState(null);
+  const credentialsState = useState({
+    username: "kaiji",
+    password: "anime"
+  });
   return (
     <CredentialContext.Provider value={credentialsState}>
           <BrowserRouter>
